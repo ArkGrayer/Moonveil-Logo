@@ -111,6 +111,7 @@ moonveil-logo/
 
 Não tem nada para instalar. Sério.
 
+
 ```bash
 # Clone o repositório
 git clone https://github.com/ArkGrayer/moonveil-logo.git
@@ -125,6 +126,12 @@ xdg-open index.html    # Linux
 ```
 
 > Ou simplesmente arraste o `index.html` para qualquer aba do navegador. Funciona offline, sem servidor, sem nada.
+
+<br/>
+
+## ✦ Requisitos
+
+> **Existir**
 
 <br/>
 
