@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moonveil Studios - Animações Avançadas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .moonveil-path {
+        transform-box: fill-box;
+        transform-origin: center;
+        will-change: transform, opacity, filter;
+      }
+
+      /* ----------------------------------------
+       1. ANIMAÇÃO DE ENTRADA (ECLIPSE REVEAL)
+       ---------------------------------------- */
+
+      .anim-intro .path-lua {
+        animation: slideLua 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+      .anim-intro .path-figura {
+        animation: slideFigura 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
+      }
+      .anim-intro .path-v1 {
+        animation: dropVeil 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both;
+        transform-origin: top center;
+      }
+      .anim-intro .path-v2 {
+        animation: dropVeil 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both;
+        transform-origin: top center;
+      }
+      .anim-intro .path-v3 {
+        animation: dropVeil 1s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s both;
+        transform-origin: top center;
+      }
+
+      @keyframes slideLua {
+        0% {
+          opacity: 0;
+          transform: translateY(-150px) scale(0.8);
+          filter: blur(15px) drop-shadow(0 0 0px rgba(149, 163, 226, 0));
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0) drop-shadow(0 0 15px rgba(149, 163, 226, 0.5));
+        }
+      }
+      @keyframes slideFigura {
+        0% {
+          opacity: 0;
+          transform: translateX(150px) scale(0.9);
+          filter: blur(15px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+          filter: blur(0);
+        }
+      }
+      @keyframes dropVeil {
+        0% {
+          opacity: 0;
+          transform: translate(-100px, -150px) rotate(-10deg) scale(0.8);
+          filter: blur(15px);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+          filter: blur(0);
+        }
+      }
+
+      /* ----------------------------------------
+       2. ANIMAÇÕES CONTÍNUAS (FLUTUAÇÃO E BRILHO)
+       ---------------------------------------- */
+
+      /* Véus respirando */
+      .anim-float .path-v1 {
+        animation: breatheVeil 3.5s ease-in-out infinite alternate;
+      }
+      .anim-float .path-v2 {
+        animation: breatheVeil 3.5s ease-in-out 0.8s infinite alternate;
+      }
+      .anim-float .path-v3 {
+        animation: breatheVeil 3.5s ease-in-out 1.6s infinite alternate;
+      }
+
+      @keyframes breatheVeil {
+        0% {
+          transform: scale(1) translateY(0) rotate(0deg);
+        }
+        100% {
+          transform: scale(1.03) translateY(-10px) rotate(1deg);
+        }
+      }
+
+      /* Lua pulsando e rotacionando sutilmente com brilho realista */
+      .anim-glow .path-lua {
+        animation: moonPulse 5s ease-in-out infinite alternate;
+      }
+
+      @keyframes moonPulse {
+        0% {
+          filter: drop-shadow(0 0 15px rgba(149, 163, 226, 0.5));
+          transform: rotate(0deg);
+        }
+        100% {
+          filter: drop-shadow(0 0 25px rgba(149, 163, 226, 0.8))
+            drop-shadow(0 0 50px rgba(149, 163, 226, 0.4));
+          transform: rotate(1.5deg);
+        }
+      }
+
+      /* Scrollbars e Inputs UI */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+      input:checked ~ .toggle-bg {
+        background-color: #6366f1;
+      }
+      input:checked ~ .dot {
+        transform: translateX(100%);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-950 text-slate-200 min-h-screen flex flex-col font-sans overflow-x-hidden selection:bg-indigo-500/30"
+  >
+    <!-- Header -->
+    <header
+      class="p-6 border-b border-slate-800/60 bg-slate-900/50 backdrop-blur-sm flex justify-between items-center z-10 relative"
+    >
+      <div class="flex items-center gap-3">
+        <div class="w-3 h-3 rounded-full bg-indigo-500 animate-pulse"></div>
+        <h1 class="text-xl font-medium tracking-wide text-white">
+          Moonveil <span class="text-indigo-400 font-light">Studios</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main
+      class="flex-1 flex flex-col lg:flex-row w-full max-w-7xl mx-auto p-4 lg:p-8 gap-8"
+    >
+      <!-- Esquerda: Área de Visualização (Palco) -->
+      <div
+        class="flex-1 flex flex-col rounded-3xl overflow-hidden border border-slate-800/60 bg-slate-900/30 shadow-2xl relative min-h-[500px]"
+      >
+        <!-- Fundo Estrelado Decorativo -->
+        <div
+          class="absolute inset-0 opacity-20 pointer-events-none"
+          style="
+            background-image: radial-gradient(#fff 1px, transparent 1px);
+            background-size: 40px 40px;
+          "
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-indigo-900/20 to-transparent pointer-events-none"
+        ></div>
+
+        <!-- PALCO DA LOGO -->
+        <div class="flex-1 flex items-center justify-center p-12 relative z-10">
+          <!-- SVG -->
+          <svg
+            id="moonveil-svg"
+            class="w-72 h-72 md:w-96 md:h-96 drop-shadow-2xl overflow-visible anim-intro anim-glow"
+            viewBox="0 0 3000 3000"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xml:space="preserve"
+            xmlns:serif="http://www.serif.com/"
+            style="
+              fill-rule: evenodd;
+              clip-rule: evenodd;
+              stroke-linejoin: round;
+              stroke-miterlimit: 2;
+            "
+          >
+            <path
+              id="veu3"
+              class="moonveil-path path-v3"
+              d="M1623.522,2291.011c-489.707,-56.571 -870.437,-473.117 -870.437,-977.885c0,-275.262 113.221,-524.289 295.593,-703.011c-33.184,70.793 -57.33,155.234 -68.405,255.917c-64.92,590.18 218.734,1185.588 643.249,1424.98Z"
+              style="fill: #76b6ea"
+            />
+
+            <path
+              id="veu2"
+              class="moonveil-path path-v2"
+              d="M1834.752,2292.788c-491.76,-130.936 -849.587,-764.917 -780.554,-1392.497c35.408,-321.89 215.505,-463.991 385.721,-525.735c89.842,-28.498 185.25,-44.441 284.16,-45.767c16.437,0.284 28.69,1.044 35.677,1.587c-120.443,112.752 -293.241,334.31 -350.582,709.991c-88.724,581.295 144.173,1045.502 425.578,1252.421Z"
+              style="fill: #76b6ea"
+            />
+
+            <path
+              id="veu1"
+              class="moonveil-path path-v1"
+              d="M2253.696,549.098c-114.643,62.666 -289.356,192.982 -478.624,459.611c-237.111,334.027 -227.091,659.645 -202.614,816.64c-94.338,-205.853 -140.773,-467.332 -95.783,-762.094c69.933,-458.183 329.724,-662.926 407.307,-714.702c135.409,45.192 260.227,113.621 369.713,200.546Z"
+              style="fill: #76b6ea"
+            />
+
+            <path
+              id="figura-feminina"
+              class="moonveil-path path-figura"
+              serif:id="figura feminina"
+              d="M2712.404,1446.804c-55.676,388.332 -348.987,710.207 -715.655,818.199c-45.645,-3.62 -98.277,-33.387 -140.346,-61.887c-46.342,-31.394 -81.748,-61.294 -114.793,-98.421c-0.831,-80.361 49.461,-216.418 95.87,-248.425c47.825,-32.983 152.537,-13.88 258.089,16.335c87.569,25.067 144.806,-42.797 142.571,-93.779c-2.8,-63.866 13.272,-89.868 29.764,-81.623c34.632,-23.912 9.895,-69.264 9.895,-69.264c0,0 44.527,-36.281 39.808,-59.369c-19.56,-17.316 -38.159,-67.614 -10.949,-75.993c183.878,-57.852 91.243,-122.921 91.243,-122.921c-138.501,-162.658 -114.344,-238.351 -80.295,-326.927c83.974,-196.479 -32.439,-342.09 -32.439,-342.09c1.61,144.275 -144.943,291.497 -355.916,407.451c-155.838,85.651 -241.378,231.627 -275.445,302.076c30.81,-114.98 83.527,-237.882 169.92,-359.586c189.707,-267.247 364.791,-397.549 479.421,-460.046c239.239,211.468 394.54,515.773 409.256,856.269Z"
+              style="fill: #344062"
+            />
+
+            <path
+              id="lua"
+              class="moonveil-path path-lua"
+              d="M2688.914,1744.266c-113.17,552.869 -602.796,969.285 -1188.914,969.285c-669.777,0 -1213.551,-543.774 -1213.551,-1213.551c0,-669.777 543.774,-1213.551 1213.551,-1213.551c13.853,0 27.652,0.233 41.394,0.694c-482.81,91.883 -848.283,516.59 -848.283,1025.983c0,576.421 467.98,1044.401 1044.401,1044.401c422.726,0 787.13,-251.69 951.403,-613.26Z"
+              style="fill: #95a3e2"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="p-4 bg-slate-900/80 backdrop-blur border-t border-slate-800 flex justify-center gap-4 text-sm z-20 relative"
+        >
+          <button
+            onclick="playIntroAnimation()"
+            class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-lg shadow-indigo-900/50 transition-all active:scale-95"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            Ver Montagem da Logo
+          </button>
+        </div>
+      </div>
+
+      <!-- Direita: Controles e Código -->
+      <div class="w-full lg:w-96 flex flex-col gap-6">
+        <!-- Painel de Controles -->
+        <div
+          class="bg-slate-900 rounded-3xl border border-slate-800/60 p-6 shadow-xl relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500"
+          ></div>
+          <h2
+            class="text-lg font-medium text-white mb-6 flex items-center gap-2"
+          >
+            <svg
+              class="w-5 h-5 text-indigo-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+              ></path>
+            </svg>
+            Efeitos Contínuos
+          </h2>
+
+          <div class="space-y-5">
+            <!-- Toggle Float Véus -->
+            <label
+              class="flex items-center justify-between cursor-pointer group"
+            >
+              <span
+                class="text-slate-300 group-hover:text-white transition-colors"
+                >Respiração dos Véus</span
+              >
+              <div class="relative">
+                <input
+                  type="checkbox"
+                  id="toggle-float"
+                  class="sr-only"
+                  checked
+                  onchange="toggleEffect('anim-float', this.checked)"
+                />
+                <div
+                  class="block bg-slate-700 w-10 h-6 rounded-full transition-colors toggle-bg"
+                ></div>
+                <div
+                  class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform transform translate-x-4"
+                ></div>
+              </div>
+            </label>
+
+            <!-- Toggle Glow Lua -->
+            <label
+              class="flex items-center justify-between cursor-pointer group"
+            >
+              <span
+                class="text-slate-300 group-hover:text-white transition-colors"
+                >Pulsação da Lua</span
+              >
+              <div class="relative">
+                <input
+                  type="checkbox"
+                  id="toggle-glow"
+                  class="sr-only"
+                  checked
+                  onchange="toggleEffect('anim-glow', this.checked)"
+                />
+                <div
+                  class="block bg-slate-700 w-10 h-6 rounded-full transition-colors toggle-bg"
+                ></div>
+                <div
+                  class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform transform translate-x-4"
+                ></div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      let svg = document.getElementById("moonveil-svg");
+      let introTimeout;
+
+      // Alterna os efeitos contínuos
+      function toggleEffect(className, isChecked) {
+        if (isChecked) {
+          svg.classList.add(className);
+        } else {
+          svg.classList.remove(className);
+        }
+      }
+
+      // Função para forçar o Replay garantido
+      function playIntroAnimation() {
+        clearTimeout(introTimeout);
+
+        svg.classList.remove("anim-float", "anim-glow");
+
+        const newSvg = svg.cloneNode(true);
+        svg.parentNode.replaceChild(newSvg, svg);
+        svg = newSvg;
+
+        svg.classList.remove("anim-intro");
+
+        requestAnimationFrame(() => {
+          svg.classList.add("anim-intro");
+
+          introTimeout = setTimeout(() => {
+            if (document.getElementById("toggle-float").checked)
+              svg.classList.add("anim-float");
+            if (document.getElementById("toggle-glow").checked)
+              svg.classList.add("anim-glow");
+          }, 2500);
+        });
+      }
+
+      // Inicia a animação quando a página carrega
+      window.onload = () => {
+        playIntroAnimation();
+      };
+    </script>
+  </body>
+</html>
