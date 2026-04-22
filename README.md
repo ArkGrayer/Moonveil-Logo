@@ -22,7 +22,7 @@
 
 <br/>
 
-<img width="600" src="https://raw.githubusercontent.com/yourusername/moonveil-logo/main/preview.png" alt="Moonveil Studios Logo Animation Preview"/>
+<img width="600" src="src/moonveil.svg" alt="Moonveil Studios Logo Animation Preview"/>
 
 > *Se a imagem acima não carregar, abra o `index.html` diretamente no seu navegador para ver a animação ao vivo.*
 
