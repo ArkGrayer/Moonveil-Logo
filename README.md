@@ -75,9 +75,9 @@ A sequência foi dividida em **três camadas independentes**, cada uma controlá
 |---|---|---|---|---|
 | 🌕 Lua | Cai do topo + desfoca para dentro | `1.5s` | `0s` | `cubic-bezier(0.2, 0.8, 0.2, 1)` |
 | 🧍 Figura | Desliza da direita | `1.2s` | `0.6s` | `cubic-bezier(0.2, 0.8, 0.2, 1)` |
-| 🌫️ Véu 1 | Cai com spring bounce | `1.0s` | `1.0s` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
-| 🌫️ Véu 2 | Cai com spring bounce | `1.0s` | `1.2s` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
-| 🌫️ Véu 3 | Cai com spring bounce | `1.0s` | `1.4s` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
+| 🟦 Véu 1 | Cai com spring bounce | `1.0s` | `1.0s` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
+| 🟦 Véu 2 | Cai com spring bounce | `1.0s` | `1.2s` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
+| 🟦 Véu 3 | Cai com spring bounce | `1.0s` | `1.4s` | `cubic-bezier(0.34, 1.56, 0.64, 1)` |
 
 <br/>
 
@@ -97,9 +97,12 @@ A lua pulsa entre dois estados de `drop-shadow`, com um glow suave em `rgba(149,
 
 ```
 moonveil-logo/
-│
+├── 📁 src                 ← Só uma pasta para organizar, gostastes?
+  ├── 🏞️ moonveil.svg      ← Logozinha. Fim.
 ├── 📄 index.html          ← Tudo. É só isso. Sem build. Sem node_modules.
-└── 📄 README.md           ← Você está aqui
+├── 📄 README.md           ← Você está aqui
+└── 📄 LICENSE             ← Licença de direitos autorais que ninguém lê e viola mesmo assim, sugiro
+                              que leia, seu infame.
 ```
 
 <br/>
@@ -110,7 +113,7 @@ Não tem nada para instalar. Sério.
 
 ```bash
 # Clone o repositório
-git clone https://github.com/yourusername/moonveil-logo.git
+git clone https://github.com/ArkGrayer/moonveil-logo.git
 
 # Entre na pasta
 cd moonveil-logo
